@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   # POST: /users
   post "/users" do
+    User.create(email:params[:user][:email], password: params[:user][:password])
     redirect "/users"
   end
 
