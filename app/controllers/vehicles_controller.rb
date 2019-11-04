@@ -1,10 +1,14 @@
+require_relative "../models/vehicle"
+
 class VehiclesController < ApplicationController
 
+  #index
     get "/vehicles" do
-      erb :"/vehicles/index.html"
       @vehicles = Vehicle.all
+      erb :"/vehicles/index.html"
     end
   
+  #create
     get "/vehicles/new" do
       erb :"/vehicles/new.html"
     end

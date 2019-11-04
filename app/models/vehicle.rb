@@ -2,10 +2,10 @@ class Vehicle < ActiveRecord::Base
 
     #belongs_to
 
-    @@all = []
+    # @@all = []
 
-    def self.all
-        @@all << self
-    end
+    # def self.all
+    #     @@all << self
+    # end
 
 end
