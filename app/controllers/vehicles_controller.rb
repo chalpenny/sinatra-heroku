@@ -8,7 +8,7 @@ class VehiclesController < ApplicationController
       erb :"/vehicles/index.html"
     end
   
-  #create
+  #new
     get "/vehicles/new" do
       erb :"/vehicles/new.html"
     end
