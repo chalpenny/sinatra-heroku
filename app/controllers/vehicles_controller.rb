@@ -2,6 +2,7 @@ class VehiclesController < ApplicationController
 
     get "/vehicles" do
       erb :"/vehicles/index.html"
+      @vehicles = Vehicle.all
     end
   
     get "/vehicles/new" do
@@ -10,7 +11,7 @@ class VehiclesController < ApplicationController
   
     # POST: /vehicles
     post "/vehicles" do
-      if vehicle = Vehicle.create(email:params[:vehicle][:email], password: params[:user][:password])
+      if @vehicle = Vehicle.create(email:params[:vehicle][:email], password: params[:user][:password])
         session[:user_id] = user.id
       end
         redirect "/vehicles"

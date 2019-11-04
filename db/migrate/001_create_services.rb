@@ -1,6 +1,6 @@
-class ServiceItem < ActiveRecord::Migration
+class CreateServices < ActiveRecord::Migration
     def change
-        create_table :service do |t|
+        create_table :services do |t|
             t.string :service_item
             t.datetime :date
             t.integer :cost

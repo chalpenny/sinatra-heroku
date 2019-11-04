@@ -1,1 +1,5 @@
-<h1>Here's your current list of vehicles:</h1>
+<h1>Here is your current list of vehicles:</h1>
+<ul>
+    <% @vehicles.each do |vehicle| %>
+        <li><%= vehicle.make %></li>
+        <% end %>
