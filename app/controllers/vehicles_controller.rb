@@ -13,26 +13,28 @@ class VehiclesController < ApplicationController
       erb :"/vehicles/new.html"
     end
   
-    # POST: /vehicles
+  #create vehicle
     post "/vehicles" do
-      if @vehicle = Vehicle.create(email:params[:vehicle][:email], password: params[:user][:password])
-        session[:user_id] = user.id
-      end
-        redirect "/vehicles"
+      @vehicle = Vehicle.create(make: params[:make],model: params[:model],year: params[:year])
+      redirect "/vehicles/:id/#{vehicles.id}"
     end
   
-    # GET: /vehicles/5
+    #show
     get "/vehicles/:id" do
+      @vehicle = Vehicle.find(params[:id])
       erb :"/vehicles/show.html"
     end
   
-    # GET: /vehicles/5/edit
+    #edit
     get "/vehicles/:id/edit" do
+      @vehicle = Vehicle.find(params[:id])
       erb :"/vehicles/edit.html"
     end
   
     # PATCH: /vehicles/5
     patch "/vehicles/:id" do
+      @vehicle = Vehicle.find_by_id(params[:id])
+      @post.update(make: params[:make],model: params[:model],year: params[:year])
       redirect "/vehicles/:id"
     end
   

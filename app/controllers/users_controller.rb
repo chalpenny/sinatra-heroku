@@ -12,10 +12,10 @@ class UsersController < ApplicationController
 
   # POST: /users
   post "/users" do
-    if user = User.create(email:params[:user][:email], password: params[:user][:password])
+    @user = User.create(email:params[:user][:email], password: params[:user][:password])
       session[:user_id] = user.id
-    end
-      redirect "/users"
+    
+       redirect "/users"
   end
 
   # GET: /users/5
