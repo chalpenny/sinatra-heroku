@@ -20,8 +20,8 @@
       <a href="/users/signup">Sign Up</a>
       <a href="/users/login">Log In</a>
       <a href="/vehicles">Vehicles</a>
-    </nav><br><br>
-    <p>Hello, name</p/>
+    </nav><br>
+    <p>Hello, <%= params[:email] || "world" %></h2></p/>
         <%= yield %>
 
       <footer class="branding">

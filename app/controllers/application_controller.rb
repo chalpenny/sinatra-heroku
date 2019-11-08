@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    redirect "/users/new"
+    redirect "/signup"
   end
 
 end

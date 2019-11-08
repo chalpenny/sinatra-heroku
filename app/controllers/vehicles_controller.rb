@@ -16,7 +16,7 @@ class VehiclesController < ApplicationController
   #create vehicle
     post "/vehicles" do
       @vehicle = Vehicle.create(make: params[:make],model: params[:model],year: params[:year])
-      redirect "/vehicles/:id/#{vehicles.id}"
+      redirect "/vehicles/:id/#{vehicle.id}"
     end
   
     #show

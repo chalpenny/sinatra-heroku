@@ -1,5 +1,5 @@
-<h3><%= @vehicle.make %></h3>
-<p><%= @vehicle.model %></p>
+<p><%= @vehicle.make %>
+<%= @vehicle.model %> <%= @vehicle.year %></p>
 <p><a href="/vehicles/<%= @vehicle.id %>/edit">Edit Vehicle</a></p>
 <form method="post" action"/vehicles/:id">
     <input type="hidden" name="_method" value="delete" />
