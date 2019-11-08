@@ -1,13 +1,32 @@
 class UsersController < ApplicationController
 
-  # GET: /users
-  get "/users" do
-    erb :"/users/index.html"
+  # GET: /users/new
+  get "/signup" do
+    erb :"/users/signup.html"
   end
 
-  # GET: /users/new
-  get "/users/new" do
-    erb :"/users/new.html"
+  post "/signup" do
+    user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    
+  end
+
+  get "/login" do
+    erb :"/users/login.html"
+  end
+
+  post "/login" do
+    user = User.find_by_username(params[:email])
+    if user.authenticate(params[:password])
+      session[:user_id] = user_id
+      redirect "/vehicles"
+    else
+      erb :"/users/login.html"
+    end
+  end
+
+   # GET: /users
+   get "/users" do
+    erb :"/users/index.html"
   end
 
   # POST: /users
@@ -37,4 +56,5 @@ class UsersController < ApplicationController
   delete "/users/:id/delete" do
     redirect "/users"
   end
+
 end

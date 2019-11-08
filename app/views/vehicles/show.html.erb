@@ -1,2 +1,7 @@
 <h3><%= @vehicle.make %></h3>
 <p><%= @vehicle.model %></p>
+<p><a href="/vehicles/<%= @vehicle.id %>/edit">Edit Vehicle</a></p>
+<form method="post" action"/vehicles/:id">
+    <input type="hidden" name="_method" value="delete" />
+    <input type="submit" value="Delete Vehicle" />
+</form>

@@ -1,5 +1,5 @@
 class Vehicle < ActiveRecord::Base
 
-    #belongs_to
+    belongs_to :user
 
 end

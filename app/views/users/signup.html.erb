@@ -2,13 +2,17 @@
   <body>
     <h2>Welcome to your vehicle maintenance tracker!</h2><br>
     <h3>Create a user name and password to get started:</h3>
-    <form method="post" action"/users">
+    <form method="post" action"/signup">
         <p>
             <label for="user[email]">Email:</label>
             <input type="text" name="user[email]" />
         </p>
         <p>
             <label for="user[password]">Password:</label>
+            <input type="password" name="user[password]" />
+        </p>
+        <p>
+            <label for="user[password_confirmation]">Confirm Password:</label>
             <input type="password" name="user[password]" />
         </p>
         <input type="submit" value="Sign Up" />

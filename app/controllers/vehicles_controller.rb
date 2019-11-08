@@ -40,6 +40,10 @@ class VehiclesController < ApplicationController
   
     # DELETE: /vehicles/5/delete
     delete "/vehicles/:id/delete" do
-      redirect "/vehicles"
+      redirect "/vehicles" unless @vehicle
+      if @post.update(deleted: true)
+        redirect "/posts"
     end
+    end
+
   end
