@@ -10,20 +10,6 @@ class UsersController < ApplicationController
     redirect "/vehicles"
   end
 
-  get "/login" do
-    erb :"/users/login.html"
-  end
-
-  post "/login" do
-    user = User.find_by_id(params[:id])
-    if user.authenticate(params[:password])
-      session[:user_id] = user_id
-      redirect "/vehicles"
-    else
-      erb :"/users/login.html"
-    end
-  end
-
    # GET: /users
    get "/users" do
     erb :"/users/index.html"

@@ -10,7 +10,8 @@ class SessionsnController < ApplicationController
           session[:user_id] = user_id
           redirect "/vehicles"
         else
-          erb :"/users/login.html"
+            flash[:error] = "Incorrect email or password.  Please sign up or login"
+          erb :"/users/signup.html"
         end
       end
 
