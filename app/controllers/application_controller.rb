@@ -13,4 +13,14 @@ class ApplicationController < Sinatra::Base
     redirect "/signup"
   end
 
+  helpers
+
+  def current_user 
+    User.find_by_id(session[:user_id])
+  end
+
+  def logged_in?
+    !!current_user
+  end
+
 end

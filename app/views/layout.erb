@@ -17,11 +17,19 @@
     <div class="wrapper">
 
     <nav>
-      <a href="/users/signup">Sign Up</a>
-      <a href="/users/login">Log In</a>
-      <a href="/vehicles">Vehicles</a>
+      <% if logged_in? %>
+        <form method="post" action="/logout" style="display: inline">
+          <input type="hidden" name="_method" value="delete" />
+          <input type="submit" value="Log Out" />
+        </form>
+          <a href="/vehicles">Vehicles</a>
+        <a href="/vehicles/new">Add New Vehicle</a>
+        <p>Hello, <%= params[email] || "world" %></h2></p/>
+        <% else %>
+        # <a href="/users/signup">Sign Up</a>
+        # <a href="/users/login">Log In</a>
+      <% end %>
     </nav><br>
-    <p>Hello, <%= params[:email] || "world" %></h2></p/>
         <%= yield %>
 
       <footer class="branding">
