@@ -24,7 +24,8 @@
         </form>
           <a href="/vehicles">Vehicles</a>
         <a href="/vehicles/new">Add New Vehicle</a>
-        <p>Hello, <%= params[email] || "world" %></h2></p/>
+        <p><h4>Hello, <%= session[:user_id] || "world" %></h4><br>
+        </p/>
         <% else %>
         
       <% end %>

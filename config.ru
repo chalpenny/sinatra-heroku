@@ -8,5 +8,5 @@ use Rack::MethodOverride
 
 run ApplicationController
 use UsersController
-use SessionsnController
+use SessionsController
 use VehiclesController
