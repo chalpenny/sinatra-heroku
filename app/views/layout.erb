@@ -8,6 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
     <title>Vehicle Maintenance Tracker</title>
+    <style>
+      .error { color: red; }
+    </style>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -24,7 +27,7 @@
         </form>
           <a href="/vehicles">Vehicles</a>
         <a href="/vehicles/new">Add New Vehicle</a>
-        <p><h4>Hello, <%= session[:user_id] || "world" %></h4><br>
+        <p><h4>Hello, <%= params[:email] || "world" %></h4><br>
         </p/>
         <% else %>
         

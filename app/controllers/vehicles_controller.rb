@@ -9,17 +9,17 @@ class VehiclesController < ApplicationController
       erb :"/vehicles/index.html"
     end
   
+     #create vehicle
+     post "/vehicles" do
+      redirect_if_not_logged_in
+      @vehicle = Vehicle.create(make: params[:make],model: params[:model],year: params[:year])
+      redirect "/vehicles/#{@vehicle[:id]}"
+    end
+
   #new
     get "/vehicles/new" do
       redirect_if_not_logged_in
       erb :"/vehicles/new.html"
-    end
-  
-  #create vehicle
-    post "/vehicles" do
-      redirect_if_not_logged_in
-      @vehicle = Vehicle.create(make: params[:make],model: params[:model],year: params[:year])
-      redirect "/vehicles/:id/#{vehicle.id}"
     end
   
     #show

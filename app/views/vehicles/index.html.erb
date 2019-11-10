@@ -1,12 +1,9 @@
 
-<h2>Here is your current list of vehicles:</h2>
-<form method="post" action"/vehicles/new">
-    <input type="hidden" name="_method" value="Add" />
-    <input type="submit" value="Add Vehicle" />
-</form><br>
+<h2>Here are your vehicles:</h2>
 <ul>
     <% @vehicles.each do |vehicle| %>
-        <h5><a href="/vehicles"><%= vehicle.make %>
+        <h5><a href="/vehicles/<%= vehicle.id %>">
+        <%= vehicle.make %>
         <%= vehicle.model %>
         <%= vehicle.year %></a></h5>
         <br>
