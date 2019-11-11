@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191110041132) do
+ActiveRecord::Schema.define(version: 20191111030118) do
 
-  create_table "services", force: :cascade do |t|
-    t.string   "service_item"
-    t.datetime "date"
-    t.integer  "cost"
+  create_table "maintenance", force: :cascade do |t|
+    t.string  "service_item"
+    t.string  "date"
+    t.string  "mechanic"
+    t.integer "cost"
   end
 
   create_table "users", force: :cascade do |t|
@@ -31,8 +32,10 @@ ActiveRecord::Schema.define(version: 20191110041132) do
     t.string  "model"
     t.string  "year"
     t.integer "user_id"
+    t.integer "service_id"
   end
 
+  add_index "vehicles", ["service_id"], name: "index_vehicles_on_service_id"
   add_index "vehicles", ["user_id"], name: "index_vehicles_on_user_id"
 
 end
