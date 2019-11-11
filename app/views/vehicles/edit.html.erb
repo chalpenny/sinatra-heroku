@@ -1,17 +1,17 @@
-<h1>Edit vehicle info</h1>
+<h4>Edit vehicle info</h4>
 <form method="post" action="/vehicles/<%= @vehicle.id %>">
     <inut type="hidden" name="_method" value="patch" />
-    <p>
+    <p><h5>
         <label for="make;">Make:</label>
-        <input type="text" name="vehicle[make]" />
+        <input type="text" name="make" value="<%= @vehicle.make %>" />
     </p>
     <p>
         <label for="model;">Model:</label>
-        <input type="text" name="vehicle[model]" />
+        <input type="text" name="model" value="<%= @vehicle.model %>"/>
     </p>
     <p>
         <label for="year;">Year:</label>
-        <input type="text" name="vehicle[year]" />
-    </p>
+        <input type="text" name="year" value="<%= @vehicle.year %>"/>
+    </p></h5>
     <input type="submit" value="Update vehicle">
 </form>

@@ -1,6 +1,9 @@
-<p><%= @vehicle.make %>
-<%= @vehicle.model %> <%= @vehicle.year %></p>
+<p><h5><%= @vehicle.make %>
+<%= @vehicle.model %> <%= @vehicle.year %></p><br><br>
+<p><%  %>
+</p>
 <p><a href="/vehicles/<%= @vehicle.id %>/edit">Edit Vehicle</a></p>
+<p><a href="/vehicles/<%= @vehicle.id %>/edit">Add Service</a></p></h5>
 <form method="post" action"/vehicles/:id">
     <input type="hidden" name="_method" value="delete" />
     <input type="submit" value="Delete Vehicle" />

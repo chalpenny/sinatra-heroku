@@ -40,8 +40,13 @@ class VehiclesController < ApplicationController
     patch "/vehicles/:id" do
       redirect_if_not_logged_in
       @vehicle = Vehicle.find_by_id(params[:id])
-      @post.update(make: params[:make],model: params[:model],year: params[:year])
-      redirect "/vehicles/:id"
+      redirect "/posts" unless @vehicle
+      if @vehicle.update(make: params[:make],model: params[:model],year: params[:year])
+      redirect "/vehicles/#{@vehicle[:id]}"
+      else
+        @error = "Vehicle couldn't be updated"
+        erb :"/vehicles/edit.html"
+      end
     end
   
     # DELETE: /vehicles/5/delete
