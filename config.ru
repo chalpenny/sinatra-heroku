@@ -10,3 +10,4 @@ run ApplicationController
 use UsersController
 use SessionsController
 use VehiclesController
+use ServicesController

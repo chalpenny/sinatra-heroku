@@ -1,9 +1,18 @@
 <p><h5><%= @vehicle.make %>
-<%= @vehicle.model %> <%= @vehicle.year %></p><br><br>
-<p><%  %>
+<%= @vehicle.model %> <%= @vehicle.year %></p><br>
+<h2>Services</h2>
+<ul>
+    <% @services.each do |service| %>
+        <h5>
+        <%= service.service_item %>
+        <%= service.date %>
+        <%= service.cost %></h5>
+        <br>
+        <% end %>
+</ul>
 </p>
 <p><a href="/vehicles/<%= @vehicle.id %>/edit">Edit Vehicle</a></p>
-<p><a href="/vehicles/<%= @vehicle.id %>/edit">Add Service</a></p></h5>
+<p><a href="/services/new">Add Service</a></p></h5>
 <form method="post" action"/vehicles/:id">
     <input type="hidden" name="_method" value="delete" />
     <input type="submit" value="Delete Vehicle" />
