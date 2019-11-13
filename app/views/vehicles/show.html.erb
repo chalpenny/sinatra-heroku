@@ -1,19 +1,25 @@
 <p><h5><%= @vehicle.make %>
-<%= @vehicle.model %> <%= @vehicle.year %></p><br>
-<h2>Services</h2>
-<ul>
+<%= @vehicle.model %> <%= @vehicle.year %></p>
+</p><br>
+
+<h4>Service:</h4>
+<% if @services == nil %>    
+<h5><%=  "Click 'Add Service' to enter service for this vehicle"%></h5>
+<% else %>
+    <ul>
     <% @services.each do |service| %>
-        <h5>
-        <%= service.service_item %>
-        <%= service.date %>
-        <%= service.cost %></h5>
+        <%= services.service_item %>
+        <%= services.date %>
+        <%= services.mechanic %></a></h5>
         <br>
-        <% end %>
-</ul>
-</p>
-<p><a href="/vehicles/<%= @vehicle.id %>/edit">Edit Vehicle</a></p>
-<p><a href="/services/new">Add Service</a></p></h5>
-<form method="post" action"/vehicles/:id">
+    <% end %>
+    </ul>
+<% end %>
+
+
+<h5><a href="/services/new">Add Service</a>
+<a href="/vehicles/<%= @vehicle.id %>/edit">Edit Vehicle</a></h5><br>
+<form method="post" action"/vehicles/:id/delete">
     <input type="hidden" name="_method" value="delete" />
     <input type="submit" value="Delete Vehicle" />
 </form>

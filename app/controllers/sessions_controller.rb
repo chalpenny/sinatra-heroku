@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
           redirect "/vehicles"
         else
           flash[:error] = "Incorrect email or password.  Please sign up or login"
-          erb :"/users/signup.html"
+          redirect "/login"
         end
       end
 

@@ -5,14 +5,15 @@ class VehiclesController < ApplicationController
   #index
     get "/vehicles" do
       redirect_if_not_logged_in
-      @vehicles = Vehicle.all
+      @vehicles = current_user.vehicles
       erb :"/vehicles/index.html"
     end
   
      #create vehicle
      post "/vehicles" do
       redirect_if_not_logged_in
-      @vehicle = Vehicle.create(make: params[:make],model: params[:model],year: params[:year])
+      binding.pry
+      @vehicle = current_user.vehicles.create(make: params[:make],model: params[:model],year: params[:year])
       redirect "/vehicles/#{@vehicle[:id]}"
     end
 
@@ -40,7 +41,7 @@ class VehiclesController < ApplicationController
     patch "/vehicles/:id" do
       redirect_if_not_logged_in
       @vehicle = Vehicle.find_by_id(params[:id])
-      redirect "/posts" unless @vehicle
+      redirect "/vehicles" unless @vehicle
       if @vehicle.update(make: params[:make],model: params[:model],year: params[:year])
       redirect "/vehicles/#{@vehicle[:id]}"
       else
@@ -50,11 +51,11 @@ class VehiclesController < ApplicationController
     end
   
     # DELETE: /vehicles/5/delete
-    delete "/vehicles/:id/delete" do
+    delete "/vehicles/:id" do
       redirect_if_not_logged_in
       redirect "/vehicles" unless @vehicle
-      if @post.update(deleted: true)
-        redirect "/posts"
+      if @vehicle.update(deleted: true)
+        redirect "/vehicles"
     end
     end
 

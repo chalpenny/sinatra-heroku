@@ -1,6 +1,6 @@
 <h4>Edit vehicle info</h4>
 <form method="post" action="/vehicles/<%= @vehicle.id %>">
-    <inut type="hidden" name="_method" value="patch" />
+    <input type="hidden" name="_method" value="patch" />
     <p><h5>
         <label for="make;">Make:</label>
         <input type="text" name="make" value="<%= @vehicle.make %>" />
