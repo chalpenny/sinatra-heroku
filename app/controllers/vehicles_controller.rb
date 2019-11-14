@@ -9,15 +9,15 @@ class VehiclesController < ApplicationController
       erb :"/vehicles/index.html"
     end
   
-     #create vehicle
+    #create vehicle
      post "/vehicles" do
       redirect_if_not_logged_in
-      binding.pry
       @vehicle = current_user.vehicles.create(make: params[:make],model: params[:model],year: params[:year])
+      binding.pry
       redirect "/vehicles/#{@vehicle[:id]}"
     end
 
-  #new
+    #new
     get "/vehicles/new" do
       redirect_if_not_logged_in
       erb :"/vehicles/new.html"
@@ -45,18 +45,18 @@ class VehiclesController < ApplicationController
       if @vehicle.update(make: params[:make],model: params[:model],year: params[:year])
       redirect "/vehicles/#{@vehicle[:id]}"
       else
-        @error = "Vehicle couldn't be updated"
+        flash[:error] = "Vehicle couldn't be updated"
         erb :"/vehicles/edit.html"
       end
     end
   
-    # DELETE: /vehicles/5/delete
+    # DELETE: /vehicles/5
     delete "/vehicles/:id" do
       redirect_if_not_logged_in
       redirect "/vehicles" unless @vehicle
-      if @vehicle.update(deleted: true)
+      if @vehicle.destroy
         redirect "/vehicles"
-    end
+      end
     end
 
   end

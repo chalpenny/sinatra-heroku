@@ -1,13 +1,13 @@
-<p><h5><%= @vehicle.make %>
+<p><h2><%= @vehicle.make %>
 <%= @vehicle.model %> <%= @vehicle.year %></p>
-</p><br>
+</p></h2><br>
 
-<h4>Service:</h4>
+<h4>Service:</h4><br>
 <% if @services == nil %>    
-<h5><%=  "Click 'Add Service' to enter service for this vehicle"%></h5>
+<p><%= "--There are no maintenance services to show for this vehicle yet--" %></p><br>
 <% else %>
     <ul>
-    <% @services.each do |service| %>
+    <h5><% @services.each do |service| %>
         <%= services.service_item %>
         <%= services.date %>
         <%= services.mechanic %></a></h5>

@@ -5,6 +5,7 @@ class CreateServices < ActiveRecord::Migration
         t.string :date
         t.string :mechanic
         t.integer :cost
+        t.integer :vehicle_id
     end
   end
 end

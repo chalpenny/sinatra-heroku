@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20191111052801) do
     t.string  "date"
     t.string  "mechanic"
     t.integer "cost"
+    t.integer "vehicle_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -30,7 +31,6 @@ ActiveRecord::Schema.define(version: 20191111052801) do
     t.string  "model"
     t.string  "year"
     t.integer "user_id"
-    t.integer "service_id"
   end
 
 end

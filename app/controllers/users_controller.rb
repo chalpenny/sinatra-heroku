@@ -19,9 +19,8 @@ class UsersController < ApplicationController
   # POST: /users
   post "/users" do
     @user = User.create(email:params[:user][:email], password: params[:user][:password])
-      session[:user_id] = user.id
-    
-       redirect "/users"
+    session[:user_id] = user.id
+      redirect "/users"
   end
 
   # GET: /users/5

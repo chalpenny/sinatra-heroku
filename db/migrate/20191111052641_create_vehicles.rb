@@ -5,7 +5,6 @@ class CreateVehicles < ActiveRecord::Migration
         t.string :model
         t.string :year
         t.integer :user_id
-        t.integer :service_id
     end
   end
 end
