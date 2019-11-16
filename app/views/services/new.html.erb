@@ -1,4 +1,19 @@
-<h4>Enter your service info</h4>
+<% binding.pry %>
+<% if @service == nil %>    
+<p><%= "--There are no maintenance services to show for this vehicle yet--" %></p><br>
+<% else %>
+    <ul>
+    <h5><% @service.each do |service| %>
+        <%= service.service_item %>
+        <%= service.date %>
+        <%= service.mechanic %></a></h5>
+        <br>
+    <% end %>
+    </ul>
+<% end %>
+
+
+<h4>Enter info below to add maintenance services:</h4>
 <form method="post" action="/services">
   <p><h5>
   <label for="service_item;">Service:</label>
@@ -11,12 +26,14 @@
   <p>
   <label for="mechanic">Mechanic:</label>
   <input type="text" name="mechanic" />
+  <p>
+  <label for="cost">Cost:</label>
+  <input type="integer" name="cost" />
+  </p>
+  <input type="hidden" name="vehicle_id" value="<%= @vehicle.id %>"
   </p></h5>
     <input type="submit" value="Add service">
 </form>
-<% binding.pry %>
-<br>
-<p><h4>Choose which vehicle to add service to:</h4><br/> 
 
 
 

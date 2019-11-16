@@ -2,6 +2,7 @@
 <%= @vehicle.model %> <%= @vehicle.year %></p>
 </h2>
 <h5><a href="/vehicles/<%= @vehicle.id %>/edit">Edit Vehicle</a></h5>
+<h5><a href="/services/new">View Services</a></h5>
 </p><br>
 <br>
 
@@ -19,13 +20,7 @@
     </ul>
 <% end %>
 
-<br><br><br><form method="post" action"/vehicles/:id/delete">
-    <input type="hidden" name="_method" value="delete" />
-    <input type="submit" value="Delete Vehicle" />
-</form>
-
-
-<h4>Enter your service info</h4>
+<h4>Enter info below to add maintenance services:</h4>
 <form method="post" action="/services">
   <p><h5>
   <label for="service_item;">Service:</label>
@@ -38,7 +33,18 @@
   <p>
   <label for="mechanic">Mechanic:</label>
   <input type="text" name="mechanic" />
+  <p>
+  <label for="cost">Cost:</label>
+  <input type="integer" name="cost" />
+  </p>
   <input type="hidden" name="vehicle_id" value="<%= @vehicle.id %>"
   </p></h5>
     <input type="submit" value="Add service">
+</form>
+<br>
+<br>
+<br>
+<form method="post" action"/vehicles/:id/delete">
+    <input type="hidden" name="_method" value="delete" />
+    <input type="submit" value="Delete Vehicle" />
 </form>
