@@ -6,9 +6,9 @@ class ServicesController < ApplicationController
 
     post "/services" do
         binding.pry
-        @service = Service.create(service_item: params[:service_item],date: params[:date],mechanic: params[:mechanic])
+        @service = Service.create(service_item: params[:service_item],date: params[:date],mechanic: params[:mechanic], vehicle_id: params[:vehicle_id])
         binding.pry
-        redirect "/vehicles/#{@vehicle[:id]}"
+        redirect "/vehicles/#{@service[:vehicle_id]}"
     end
 
 end

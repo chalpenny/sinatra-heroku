@@ -1,6 +1,5 @@
 <h4>Enter your service info</h4>
 <form method="post" action="/services">
-<% binding.pry %>
   <p><h5>
   <label for="service_item;">Service:</label>
   <input type="text" name="service_item" />
@@ -15,11 +14,10 @@
   </p></h5>
     <input type="submit" value="Add service">
 </form>
+<% binding.pry %>
+<br>
+<p><h4>Choose which vehicle to add service to:</h4><br/> 
 
-<% form_for(@message) do |f| %>
-  <%= f.radio_button :contactmethod, 'email' %> 
-  <%= f.label :contactmethod, 'Email', :value => 'email' %>
-  <%= f.radio_button :contactmethod, 'sms' %>
-  <%= f.label :contactmethod, 'SMS', :value => 'sms' %>
-<% end %>
-</form>
+
+
+
