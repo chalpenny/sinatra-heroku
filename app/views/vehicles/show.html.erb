@@ -1,29 +1,32 @@
 <p><h2><%= @vehicle.make %>
-<%= @vehicle.model %> <%= @vehicle.year %></p>
-</h2>
+<%= @vehicle.model %> <%= @vehicle.year %></h2></p>
 <h5><a href="/vehicles/<%= @vehicle.id %>/edit">Edit Vehicle</a></h5>
-<h5><a href="/services/new">View Services</a></h5>
-</p><br>
+<br>
 <br>
 
 <h4>Service:</h4><br>
-<% if @services == nil %>    
+<% if @vehicle.services == [] %>
 <p><%= "--There are no maintenance services to show for this vehicle yet--" %></p><br>
 <% else %>
-    <ul>
-    <h5><% @services.each do |service| %>
-        <%= services.service_item %>
-        <%= services.date %>
-        <%= services.mechanic %></a></h5>
+    <div>
+    <% @vehicle.services.each do |service| %>
+        <h5><%= service.service_item %>
+        <%= "on" %>
+        <%= service.date %>
+        <%= "at" %>
+        <%= service.mechanic %>
+        <%= "for $" %>
+        <%= service.cost %></a></h5>
         <br>
     <% end %>
-    </ul>
+    </div>
 <% end %>
+<br>
 
 <h4>Enter info below to add maintenance services:</h4>
 <form method="post" action="/services">
-  <p><h5>
-  <label for="service_item;">Service:</label>
+  <p>
+  <h5><label for="service_item;">Service:</label>
   <input type="text" name="service_item" />
   </p>
   <p>
@@ -44,7 +47,7 @@
 <br>
 <br>
 <br>
-<form method="post" action"/vehicles/:id/delete">
+<form method="post" action="/vehicles/<%= @vehicle.id %>/delete">
     <input type="hidden" name="_method" value="delete" />
     <input type="submit" value="Delete Vehicle" />
 </form>

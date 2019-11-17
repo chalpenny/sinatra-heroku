@@ -1,11 +1,15 @@
-
-<h4>Here are your vehicles:</h4><br>
-<ul>
-    <% @vehicles.each do |vehicle| %>
-        <h5><a href="/vehicles/<%= vehicle.id %>">
-        <%= vehicle.make %>
-        <%= vehicle.model %>
-        <%= vehicle.year %></a></h5>
-        <br>
-        <% end %>
-</ul>
+<% if @vehicles == nil %>
+<% binding.pry %>
+    <h4>Welcome to your vehicle and maintenance service tracker.  Add a vehicle to get started %></h4>
+<% else %>
+    <h4><%= "Here are your vehicles:" %></h4><br>
+    <ul>
+        <% @vehicles.each do |vehicle| %>
+            <h5><a href="/vehicles/<%= vehicle.id %>">
+            <%= vehicle.make %>
+            <%= vehicle.model %>
+            <%= vehicle.year %></a></h5>
+            <br>
+            <% end %>
+    </ul>
+<% end %>

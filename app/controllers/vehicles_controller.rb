@@ -13,7 +13,6 @@ class VehiclesController < ApplicationController
      post "/vehicles" do
       redirect_if_not_logged_in
       @vehicle = current_user.vehicles.create(make: params[:make],model: params[:model],year: params[:year])
-      binding.pry
       redirect "/vehicles/#{@vehicle[:id]}"
     end
 
@@ -51,8 +50,9 @@ class VehiclesController < ApplicationController
     end
   
     # DELETE: /vehicles/5
-    delete "/vehicles/:id" do
+    delete "/vehicles/:id/delete" do
       redirect_if_not_logged_in
+      @vehicle = Vehicle.find(params[:id])
       redirect "/vehicles" unless @vehicle
       if @vehicle.destroy
         redirect "/vehicles"
